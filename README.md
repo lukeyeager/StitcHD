@@ -1,4 +1,0 @@
-StitcHD
-=======
-
-StitcHD

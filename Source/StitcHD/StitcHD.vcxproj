@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{44B37E1E-15C0-4B71-B365-C90F724460C4}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>StitcHD</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft SDKs\Windows\v7.0A\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft SDKs\Windows\v7.0A\Lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(BOOST_DIR)\;$(OPENCV_64_DIR)\include;..\GpuStitch\;$(CUDA_PATH_V4_0)\Include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(OPENCV_64_DIR)\lib;..\$(Platform)\$(Configuration)\;$(BOOST_DIR)\lib\$(Platform);$(CUDA_PATH_V4_0)\lib\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>GpuStitch.lib;wsock32.lib;opencv_core231.lib;opencv_imgproc231.lib;opencv_highgui231.lib;opencv_ml231.lib;opencv_video231.lib;opencv_features2d231.lib;opencv_calib3d231.lib;opencv_objdetect231.lib;opencv_contrib231.lib;opencv_legacy231.lib;opencv_flann231.lib;opencv_gpu231.lib;D3D10.lib;strmiids.lib;oleaut32.lib;ole32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <CudaCompile>
+      <TargetMachinePlatform>64</TargetMachinePlatform>
+      <Include>$(OPENCV_DIR)\include</Include>
+    </CudaCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(QTDIR)\include\;$(BOOST_DIR)\;$(OPENCV_32_DIR)\include;..\GpuStitch\;$(CUDA_PATH_V4_0)\Include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;..\$(Configuration)\;$(OPENCV_32_DIR)\lib;$(BOOST_DIR)\lib\$(Platform);$(CUDA_PATH_V4_0)\lib\$(Platform)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>GpuStitch.lib;wsock32.lib;opencv_core231.lib;opencv_imgproc231.lib;opencv_highgui231.lib;opencv_ml231.lib;opencv_video231.lib;opencv_features2d231.lib;opencv_calib3d231.lib;opencv_objdetect231.lib;opencv_contrib231.lib;opencv_legacy231.lib;opencv_flann231.lib;opencv_gpu231.lib;D3D10.lib;strmiids.lib;oleaut32.lib;ole32.lib;QtCore4.lib;QtGui4.lib;qtmain.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <CudaCompile>
+      <TargetMachinePlatform>64</TargetMachinePlatform>
+      <Include>$(OPENCV_DIR)\include</Include>
+    </CudaCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="CameraCapture.cpp" />
+    <ClCompile Include="Homographier.cpp" />
+    <ClCompile Include="ImageStitcher.cpp" />
+    <ClCompile Include="Config.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="PropertyFunctions.cpp" />
+    <ClCompile Include="ptzProto2.cpp" />
+    <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="DShowUtility.cpp" />
+    <ClCompile Include="Utils.cpp" />
+    <ClCompile Include="VideoStitcher.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CameraArrayFunctions.h" />
+    <ClInclude Include="Config.hpp" />
+    <ClInclude Include="CameraCapture.hpp" />
+    <ClInclude Include="Homographier.hpp" />
+    <ClInclude Include="ImageStitcher.hpp" />
+    <ClInclude Include="PropertyFunctions.h" />
+    <ClInclude Include="Timer.hpp" />
+    <ClInclude Include="DShowUtility.h" />
+    <ClInclude Include="Utils.h" />
+    <ClInclude Include="VideoStitcher.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>
